@@ -14,12 +14,12 @@ body {
 
 .left {
   left: 0;
-  background-color: #111;
+  background-color: #282c34;
 }
 
 .right {
   right: 430;
-  background-color: rgb(216, 216, 216);
+  background-color: #31353f;
 }
 
 .centered {
@@ -28,9 +28,12 @@ body {
   left: 30%;
   transform: translate(-50%, -50%);
   text-align: center;
+  align-items: center;
 }
 
 p {
   font-size: 120%;
-  color: dimgray;
+  color: rgb(138, 137, 137);
 }
+
+
