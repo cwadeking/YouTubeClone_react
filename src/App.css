@@ -1,4 +1,4 @@
-body {
+.body {
   font-family: 'Times New Roman', Times, serif;
   color: rgb(47, 111, 151);
 }
@@ -8,18 +8,20 @@ body {
   position: fixed;
   z-index: 1;
   top: 0;
-  overflow-x: hidden;
+  overflow-x: auto;
   padding-top: 20px;
 }
 
 .left {
   left: 0;
   background-color: #282c34;
+  align-items: right;
 }
 
 .right {
   right: 430;
   background-color: #31353f;
+  align-items: right;
 }
 
 .centered {
@@ -27,13 +29,14 @@ body {
   top: 50%;
   left: 30%;
   transform: translate(-50%, -50%);
-  text-align: center;
-  align-items: center;
+  text-align: left;
+  align-items: right;
 }
 
 p {
   font-size: 120%;
   color: rgb(138, 137, 137);
 }
+
 
 

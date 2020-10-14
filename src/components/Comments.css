@@ -1,0 +1,10 @@
+.label {
+    position: relative;
+    display: float;
+    min-width: 800px;
+    width: 100%;
+    padding: 2px 23px 2px 30px;
+}
+.iframe {
+    position: right;
+}

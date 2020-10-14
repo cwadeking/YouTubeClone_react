@@ -1,19 +1,30 @@
 import React, {Component} from "react";
 
 class Search extends Component {
-    handleOnChange = (e) => {
-      this.props.editSearchTerm(e);
+    state = {
+      searchTerm: ''
+    }
+
+    handleOnChange = (event) => {
+      console.log("event", event.target.value);
+      this.setState({
+        searchTerm:event.target.value
+      })
     };
   
     render() {
       return (
         <div>
+          
+
           <input
-            type="text"
-            value={this.props.searchTerm}
-            onChange={this.handleOnChange}
+            
+            value={this.state.searchTerm}
+            onChange={(event) => this.handleOnChange(event)}
             placeholder="Search videos!"
           />
+          <button onClick={this.props.fetchVideos(this.state.searchTerm)}>Submit</button>
+          
         </div>
       );
     }

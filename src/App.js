@@ -9,12 +9,28 @@ class App extends Component {
     super(props);
     this.state = {
       data: [],
+      searchTerm: ''
     };
   }
+
   componentDidMount() {
     axios
       .get(
-        `https://www.googleapis.com/youtube/v3/search?q=sheep&key=AIzaSyClhAQZ87dYqVrOTUa5kHGjRUDwPV8wmE8`
+        `https://www.googleapis.com/youtube/v3/search?q=${this.state.searchTerm}&key=AIzaSyClhAQZ87dYqVrOTUa5kHGjRUDwPV8wmE8`
+      )
+      .then((res) => {
+        const responseData = res.data;
+        this.setState({
+          data: responseData,
+        });
+      });
+  }
+
+  fetchVideos(searchTerm){
+    console.log("SEARCH", searchTerm);
+    axios
+      .get(
+        `https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=AIzaSyClhAQZ87dYqVrOTUa5kHGjRUDwPV8wmE8`
       )
       .then((res) => {
         const responseData = res.data;
@@ -36,7 +52,6 @@ class App extends Component {
             <h2>
               <b>Related Vidz</b>
             </h2>
-            
           </div>
         </div>
 
@@ -47,9 +62,21 @@ class App extends Component {
                 <u>Video Title</u>
               </b>
             </h2>
-            <p>Import likes as a string.</p>
-            <Search />
+            <p>Welcome to Clonetube</p>
+
+            <Search fetchVideos = {(searchTerm) => this.fetchVideos(searchTerm)} />
+
+            <iframe
+              id="ytplayer"
+              type="text/html"
+              width="800"
+              height="400"
+              src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
+              frameborder="0"
+            ></iframe>
+
             <Comments />
+
           </div>
         </div>
       </div>
@@ -57,5 +84,3 @@ class App extends Component {
   }
 }
 export default App;
-
-
