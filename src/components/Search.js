@@ -5,12 +5,12 @@ class Search extends Component {
       searchTerm: ''
     }
 
-    handleOnChange = (event) => {
-      console.log("event", event.target.value);
-      this.setState({
-        searchTerm:event.target.value
-      })
-    };
+    // handleOnChange = (event) => {
+    //   console.log("event", event.target.value);
+    //   this.setState({
+    //     searchTerm:event.target.value
+    //   })
+    // };
   
     render() {
       return (
@@ -20,10 +20,10 @@ class Search extends Component {
           <input
             
             value={this.state.searchTerm}
-            onChange={(event) => this.handleOnChange(event)}
+            // onChange={(event) => this.handleOnChange(event)}
             placeholder="Search videos!"
           />
-          <button onClick={this.props.fetchVideos(this.state.searchTerm)}>Submit</button>
+          <button onClick={()=>this.props.fetchVideos("value")}>Submit</button>
           
         </div>
       );
