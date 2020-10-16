@@ -29,7 +29,8 @@ class App extends Component {
     //     });
     //   });
   }
-
+  //create function to replace query with a string with no spaces
+  
   fetchVideos(searchTerm){
     console.log("SEARCH", searchTerm);
     axios
@@ -47,28 +48,13 @@ class App extends Component {
   render() {
     return (
       <div id="main-content">
-      <Search fetchVideos = {(searchTerm) => this.fetchVideos(searchTerm)} />
         <div className="header">
           <h1>Clonetube!</h1>
         </div>
 
-        <div className="split left">
-          <div className="centered">
-            <h2>
-              <b>Related Vidz</b>
-            </h2>
-          </div>
-        </div>
-
-        <div className="split right">
-          <div className="centered">
-            <h2>
-              <b>
-                <u>Video Title</u>
-              </b>
-            </h2>
-            <p>Welcome to Clonetube</p>
-
+        <div>
+        <Search fetchVideos = {this.fetchVideos} />
+     
 
             <iframe title= "myFrame"
               id="ytplayer"
@@ -83,7 +69,7 @@ class App extends Component {
 
           </div>
         </div>
-      </div>
+  
     );
   }
 }

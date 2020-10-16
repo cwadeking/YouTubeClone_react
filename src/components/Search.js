@@ -5,27 +5,28 @@ class Search extends Component {
     searchTerm: "",
   };
 
-
-    // handleOnChange = (event) => {
-    //   console.log("event", event.target.value);
-    //   this.setState({
-    //     searchTerm:event.target.value
-    //   })
-    // };
+   handleSubmit= (e)=>{
+    e.preventDefault();
+    this.props.fetchVideos(this.state.searchTerm)
+   }
+    handleOnChange = (event) => {
+      console.log("event", event.target.value);
+      this.setState({
+        searchTerm:event.target.value
+      })
+    };
   
     render() {
       return (
         <div>
           
-
-          <input
-            
-            value={this.state.searchTerm}
-            // onChange={(event) => this.handleOnChange(event)}
+        <form onSubmit = {this.handleSubmit}>
+          <input type = "text" value={this.state.searchTerm}
+            onChange={(event) => this.handleOnChange(event)}
             placeholder="Search videos!"
           />
-          <button onClick={()=>this.props.fetchVideos("value")}>Submit</button>
-          
+          <button type = "submit">Submit</button>
+          </form>
         </div>
       );
     }
