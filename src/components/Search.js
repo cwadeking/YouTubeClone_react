@@ -1,9 +1,10 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 class Search extends Component {
-    state = {
-      searchTerm: ''
-    }
+  state = {
+    searchTerm: "",
+  };
+
 
     // handleOnChange = (event) => {
     //   console.log("event", event.target.value);
@@ -28,6 +29,8 @@ class Search extends Component {
         </div>
       );
     }
+
   }
+
 
 export default Search;
