@@ -1,33 +1,31 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 class Search extends Component {
-    state = {
-      searchTerm: ''
-    }
+  state = {
+    searchTerm: "",
+  };
 
-    handleOnChange = (event) => {
-      console.log("event", event.target.value);
-      this.setState({
-        searchTerm:event.target.value
-      })
-    };
-  
-    render() {
-      return (
-        <div>
-          
+  handleOnSubmit = (event) => {
+    console.log("event", event.target.value);
+    this.setState({
+      searchTerm: event.target.value,
+    });
+  };
 
-          <input
-            
-            value={this.state.searchTerm}
-            onChange={(event) => this.handleOnChange(event)}
-            placeholder="Search videos!"
-          />
-          <button onClick={this.props.fetchVideos(this.state.searchTerm)}>Submit</button>
-          
-        </div>
-      );
-    }
+  render() {
+    return (
+      <div>
+        <input
+          value={this.state.searchTerm}
+          onSubmit={(event) => this.handleOnSubmit(event)}
+          placeholder="Search videos!"
+        />
+        <button onClick={this.props.fetchVideos(this.state.searchTerm)}>
+          Submit
+        </button>
+      </div>
+    );
   }
+}
 
 export default Search;
